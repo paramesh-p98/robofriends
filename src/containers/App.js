@@ -13,7 +13,7 @@ function App() {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
             .then(users => setRobots(users));
-    });
+    }, []);  // empty array []  denotes that this hooks loads during mount only , similar to componentDidMount
 
     const onSearchChange = (event) => {
         setSearchField(event.target.value);
