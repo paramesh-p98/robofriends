@@ -6,6 +6,7 @@ import './App.css';
 import ErrorBoundary from "../components/ErrorBoundary";
 
 function App() {
+    //declaring state , destructuring array 
     const [robots, setRobots] = useState([]);
     const [searchfield, setSearchField] = useState('');
 
@@ -13,7 +14,10 @@ function App() {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
             .then(users => setRobots(users));
-    }, []);  // empty array []  denotes that this hooks loads during mount only , similar to componentDidMount
+    }, []);
+
+    // empty array []  denotes that this hooks loads during mount only (run once), similar to componentDidMount
+    //add the state in the array to run if that state changes [users] this will run useffect if users state changes
 
     const onSearchChange = (event) => {
         setSearchField(event.target.value);
